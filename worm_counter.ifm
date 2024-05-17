@@ -1,0 +1,26 @@
+
+//body of for loop
+setThreshold(200, 65535, "raw");
+run("Analyze Particles...", "size=10000-100000 show=Masks display clear add");
+run("Select All");
+roiManager("Measure");
+saveAs("Results", "/Users/jbishai/Projects/odonnell/dye_chemotaxis/data/Results.csv");
+
+
+//for loop
+
+
+for(i=3;i<12;i++=3) {
+  iteration = i/3
+  substack_str="slices=" + i;
+
+  run("Make Substack...", substack_str);
+  setThreshold(200, 65535, "raw");
+  run("Analyze Particles...", "size=10000-100000 show=Masks display clear add");
+  run("Select All");
+  roiManager("Measure");
+  saveAs("Results", "/Users/jbishai/Projects/odonnell/dye_chemotaxis/data/Results_" + iteration + ".csv");
+  run("Clear Results");
+  close;
+
+}
