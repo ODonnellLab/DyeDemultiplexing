@@ -50,3 +50,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Ignore large files within the demo_large_data folder
+demo_large_data/
